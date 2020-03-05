@@ -108,11 +108,8 @@ sessionStorage、localStorage、cookie都是在浏览器端存储的数据，其
 区别：
 1、cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下
 2、存储大小限制也不同，cookie数据不能超过4K，同时因为每次http请求都会携带cookie、所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大
-
 3、数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭
-
 4、作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的
-
 5、web Storage支持事件通知机制，可以将数据更新的通知发送给监听者
 6、web Storage的api接口使用更方便
 
@@ -131,3 +128,14 @@ map是用来保存键值对的。跟对象不同的是map的键可以是任意�
 实现了iterator接口的，且每个成员都是一个双元素的数组数据结构都可以当作map构造函数的参数。map的键是跟栈内存地址绑定的
 
 set(key,value) get(key) has(key) delete(key) 在weakmap中键是弱引用对象，只接受对象作为键
+
+## 13 null 和 undefined 的区别
+
+null 表示一个空指针对象，他的意思是，该处不应该有值，他就是一个表示空的对象
+
+比如原型链的终点，链表的终点
+
+undefined 表示的是，该处应该有值，但是该值还没有被定义
+
+比如，1.定义了一个变量，但是还没有给该变量赋值 2. 获取一个对象没有定义的属性或者方法 3. 函数没有返回值，但是获取返回值 4. 调用函数的
+时候，本来该传递的参数没有被定义。

@@ -93,6 +93,9 @@ class LinkedList {
   }
 
   update(position, value){
+    if(position < 0 || position >= this.length){
+      throw new error('this position is not valid')
+    }
     let current = this.head
     let index = 0
     while(index < position){

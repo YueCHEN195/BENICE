@@ -72,9 +72,36 @@ class DoublyLinkedList extends LinkedList{
     }
     this.length ++
   }
-  // get() indexOf() update() isEmpty() size() 可以完全继承自父类
+  // get() indexOf() update isEmpty() size() 可以完全继承自父类
 
-  
+  removeAt(position){
+    if(position < 0 || position >= this.length){
+      throw new error('the position is not valid')
+    }
+    let current = this.head
+    if(this.length === 1){
+      this.head = null
+      this.tail = null
+    }else{
+      if(position === 0){
+        this.head.next.prev = null
+        this.head = this.head.next
+      }else if(position === this.length - 1){
+        this.tail.prev.next = null
+        this.tail = this.tail.prev
+      }else{
+        let index = 0
+        while(index < position){
+          current = current.next
+          index ++
+        }
+        current.prev.next = current.next
+        current.next.prev = current.prev
+      }
+    }
+    this.length --
+    return current.value
+  }
 }
 
 
