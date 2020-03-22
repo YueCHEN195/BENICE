@@ -33,12 +33,11 @@ const fs = require('fs')
 
 // 初衷： 给路径，返回读取到的内容
 function getFileByPath(fpath) {
+
   return new Promise(function (resolve, reject) {
     fs.readFile(fpath, 'utf-8', (err, dataStr) => {
-
       if (err) return reject(err)
       resolve(dataStr)
-
     })
   })
 }
