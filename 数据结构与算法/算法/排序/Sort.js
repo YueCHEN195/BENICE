@@ -79,25 +79,20 @@ function shellSort(array){
 //使用原始增量，最坏的情况下为O（N2），跟选取的增量有关，在大部分情况下，希尔排序都优于简单排序
 
 function quickSort(array){
-  
-  function median(left, right){
-    let center = Math.floor(left, right)
-    if(array[left] > array[center]){
-      array.swap(left, center)
-    }
-    if(array[center] > array[right]){
-      array.swap(center, right)
-    }
-    if(array[left] > array[right]){
-      array.swap(left, right)
-    }
-    array.swap(center,right - 1)
-    return array[right - 1]
+  if(array.length === 0){
+    return []
   }
-
-  function quick(left, right){
-    if(left >= right) return
-    
+  let left = []
+  let right = []
+  let mid = array[0]
+  for(let i = 1;i < array.length;i++){
+    if(array[i] < mid){
+      left.push(array[i])
+    }else{
+      right.push(array[i])
+    }
   }
-
+  return quickSort(left).concat(mid, quickSort(right))
 }
+
+// 快速排序

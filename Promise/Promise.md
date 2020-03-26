@@ -41,6 +41,5 @@ then方法会返回一个新的Promise实例
 所以，catch也是会返回一个promise状态的
 
 3. return一个Promise
-
 这就没什么好说的，执行这个promise结果会被下一个then接收，需要注意的是可以返回Promise.resove() 或者 Promise.reject() 来达到向下一个then传参的目的，axios的拦截器中有用到。
 

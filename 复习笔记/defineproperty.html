@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hello world</h1>
+  <script>
+    const data = {
+
+    }
+    // 参数1 操作的对象
+    // 参数2 属性名
+    // 参数3 配置对象
+    Object.defineProperty(data, 'message', {
+      // 当访问 data.message 的时候会自动调用 get 方法
+      // get方法的返回值会被设置为该属性的值
+      // get会代理对象的属性的访问，return出来是什么值就会得到什么值，而可能不是变量本生的值。
+      get(){
+        
+      },
+      // 当data.message 被赋值的时候会调用 set 方法
+      // set方法接收一个参数：为你赋的那个值
+      set(val){
+         
+      }
+    })
+    // Proxy 直接代理所有属性
+    // 参数1 ：数据源
+    // 参数2 ：配置对象
+    const p = new Proxy(data, {
+      // target: 被代理的目标对象: data
+      // Property: 访问的属性名
+      get(target, property){
+        return target[property]
+      },
+
+      set(target, property,value){
+        target[property] = value
+      }
+    })
+  </script>
+</body>
+</html>
